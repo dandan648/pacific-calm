@@ -1,0 +1,35 @@
+/*
+note on font size, always use rem instead of pixels. for the base font size dont 
+use pixels either, use a percentage of 100% - this acounts for the users own browser font setting
+and whenever they change it, it will adjust to their prefered font size  HOWEVER - when you want your 
+font size, eg 10 px - you must divide 10 by 16(standard root font size) = 62.5% - this will also
+adjust to the users prefered font size 
+
+if you have to develope a site for very old interent explorer versions then you need to use 
+pixels and not rem 
+*/
+
+@import "abstracts/functions"; 
+@import "abstracts/mixins"; 
+@import "abstracts/variables"; 
+
+@import "base/animations"; 
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
+
+@import "components/bg-video";
+@import "components/button"; 
+@import "components/card"; 
+@import "components/composition";
+@import "components/feature-box";
+@import "components/form";
+@import "components/popup"; 
+@import "components/story"; 
+
+@import "layout/footer"; 
+@import "layout/header"; 
+@import "layout/grid"; 
+@import "layout/navigation"; 
+
+@import "pages/home";

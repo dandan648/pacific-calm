@@ -1,0 +1,51 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  /* box-sizing: border-box; */
+}
+
+html {
+  /* converting px to rem  this defines what 1 rem is */
+  font-size: 62.5%; //1rem = 10px
+
+  // @include respond(phone) {
+  // 	font-size: 50%;
+  // }
+
+  @include respond(tab-land) {
+    //width less than 1200?
+    font-size: 56.25%; // 1 rem must be 9 px so i must do 9/16 =56.25%
+  }
+
+  @include respond(tab-port) {
+    //width less than 900?
+    font-size: 50%; // 1 rem must be 8 px so i must do 8/16 =50%
+  }
+
+  /* why is this the order? 
+		700px - both MQ will apply so only last declaration will be applied
+		mobile first would be the other way around 
+	
+	*/
+
+  @include respond(big-desk) {
+    font-size: 75%; // 1rem = 12px 12/16= 75%
+  }
+}
+
+body {
+  box-sizing: border-box;
+  // padding: 3rem;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}

@@ -1,0 +1,49 @@
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    
+}
+
+@mixin absCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+//media querie manager 
+
+/* 0-600    phone
+600-900     tablet portait 
+900-1200    tablet landscape 
+1200-1800   normal styles apply 
+1800 +      big screens
+
+
+$breakpoint argument choices 
+-phone 
+-tab-port
+-tab-land
+-big-desk
+
+ORDER = Base + typography > general layout + grid > page layout > components 
+*/
+
+//remember to not use px - em and rem in mediaQ are not affected by the root but rather the browser base font USE EM 
+@mixin respond ($breakpoint) {
+    @if $breakpoint == phone {
+        @media only screen and (max-width: 37.5em) {@content}; //600px/16
+    }
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width: 56.25em) {@content}; //900px/16
+    }
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width: 75em) {@content};  //1200px/16
+    }
+    @if $breakpoint == big-desk {
+        @media only screen and (min-width: 112.5em) {@content};   //1800px/16
+    }
+}
